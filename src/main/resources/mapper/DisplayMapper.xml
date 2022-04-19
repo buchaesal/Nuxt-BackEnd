@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.DisplayDao">
+
+    <select id="selectCategoryList" resultType="com.example.demo.dto.Category">
+        select * from category order by cate_order asc
+    </select>
+
+    <select id="selectProductList" parameterType="int" resultType="com.example.demo.dto.Product">
+        select * from product where cate_num = #{cateNum}
+    </select>
+
+    <select id="getProductDetail" parameterType="int" resultType="com.example.demo.dto.Product">
+        select * from product where pd_num = #{pdNum}
+    </select>
+
+</mapper>
