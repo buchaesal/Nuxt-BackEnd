@@ -17,10 +17,10 @@ public class PaymentFactory {
 
     static {
         map = new HashMap<>();
-        map.put(PaymentType.InicisMo, new InicisMo(new PayHistoryService()));
-        map.put(PaymentType.InicisPc, new InicisPc());
-        map.put(PaymentType.KakaoPay, new KakaoPay());
-        map.put(PaymentType.NaverPay, new NaverPay());
+//        map.put(PaymentType.InicisMo, new InicisMo(new PayHistoryService()));
+//        map.put(PaymentType.InicisPc, new InicisPc());
+//        map.put(PaymentType.KakaoPay, new KakaoPay());
+//        map.put(PaymentType.NaverPay, new NaverPay());
     }
 
     public static PaymentService create(PaymentType paymentType){

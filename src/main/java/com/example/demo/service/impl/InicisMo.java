@@ -18,11 +18,6 @@ public class InicisMo extends PayProcess<InicisRequest, InicisResponse> implemen
     }
 
     @Override
-    public void validateAuth(PayInfo payInfo) {
-
-    }
-
-    @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {
         return super.approve(new InicisRequest(payInfo), new InicisResponse());
     }

@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NaverPay implements PaymentService {
-    @Override
-    public void validateAuth(PayInfo payInfo) {
-
-    }
 
     @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {

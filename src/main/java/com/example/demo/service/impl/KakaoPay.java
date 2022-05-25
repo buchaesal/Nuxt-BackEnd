@@ -12,10 +12,6 @@ public class KakaoPay implements PaymentService {
 
 
 
-    @Override
-    public void validateAuth(PayInfo payInfo) {
-        System.out.println("카카오페이 인증값 검증");
-    }
 
     @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {
