@@ -10,7 +10,7 @@ import com.example.demo.service.PaymentService;
 import com.example.demo.service.abstracts.PayProcess;
 import org.springframework.stereotype.Service;
 @Service
-public class InicisPc extends PayProcess<InicisRequest, InicisResponse> implements PaymentService {
+public class InicisPc extends PayProcess implements PaymentService {
 
     public InicisPc(PayHistoryService payHistoryService){
         super(payHistoryService);

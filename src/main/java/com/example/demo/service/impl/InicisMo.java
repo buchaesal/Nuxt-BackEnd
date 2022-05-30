@@ -11,7 +11,7 @@ import com.example.demo.service.abstracts.PayProcess;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InicisMo extends PayProcess<InicisRequest, InicisResponse> implements PaymentService {
+public class InicisMo extends PayProcess implements PaymentService {
 
     public InicisMo(PayHistoryService payHistoryService){
         super(payHistoryService);

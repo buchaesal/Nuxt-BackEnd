@@ -5,7 +5,7 @@ import com.example.demo.dto.RequestDto;
 import com.example.demo.dto.ResponseDto;
 import com.example.demo.service.PayHistoryService;
 
-public abstract class PayProcess<T extends RequestDto, T2 extends ResponseDto> {
+public abstract class PayProcess {
 
     private PayHistoryService payHistoryService;
 
@@ -13,7 +13,7 @@ public abstract class PayProcess<T extends RequestDto, T2 extends ResponseDto> {
         this.payHistoryService = payHistoryService;
     }
 
-    public PayApproveResVO approve(T request, T2 response){
+    public <T extends RequestDto, T2 extends ResponseDto> PayApproveResVO approve(T request, T2 response){
 
         // 이력 insert
         payHistoryService.saveApproveHistory(request.getApproveSaveModel());
@@ -29,7 +29,7 @@ public abstract class PayProcess<T extends RequestDto, T2 extends ResponseDto> {
         return null;
     }
 
-    public void cancel(T request){
+    public <T extends  RequestDto> void cancel(T request){
 
         // 취소 이력 insert
         payHistoryService.saveCancelHistory(request.getCancelSaveModel());

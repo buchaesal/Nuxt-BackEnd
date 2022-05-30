@@ -11,7 +11,7 @@ import com.example.demo.service.abstracts.PayProcess;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KakaoPay extends PayProcess<KakaoRequest, KakaoResponse> implements PaymentService {
+public class KakaoPay extends PayProcess implements PaymentService {
 
     public KakaoPay(PayHistoryService payHistoryService) {
         super(payHistoryService);
