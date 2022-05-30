@@ -20,7 +20,8 @@ public abstract class PayProcess<T extends RequestDto, T2 extends ResponseDto> {
 
         // api 호출
         System.out.println("결제 승인 api 호출");
-        String apiResult =  "{ \"tid\" : \"t11111\" }";
+//        String apiResult =  "{ \"tid\" : \"t11111\" }";
+        String apiResult =  "{ \"kakaoTrstId\" : \"t11111\" }";
 
         // 이력 update
         payHistoryService.updateApproveHistory(response.parseResult(apiResult).getApproveUpdateModel());

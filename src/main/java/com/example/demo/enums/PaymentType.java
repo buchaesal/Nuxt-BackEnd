@@ -2,20 +2,22 @@ package com.example.demo.enums;
 
 import com.example.demo.dto.PayCancelReqVO;
 import com.example.demo.dto.PayInfo;
+import com.example.demo.service.PayHistoryService;
 import com.example.demo.service.PaymentService;
 import com.example.demo.service.impl.InicisPc;
+import com.example.demo.service.impl.KakaoPay;
 
 import java.util.Arrays;
-import java.util.function.Supplier;
 
 public enum PaymentType {
 
-    INICIS_PC("inicisPc", InicisPc::getInstance);
+    INICIS_PC("inicisPc", new InicisPc(new PayHistoryService())),
+    KAKAO_PAY("kakaoPay", new KakaoPay(new PayHistoryService()));
 
     private final String type;
-    private final Supplier<PaymentService> service;
+    private final PaymentService service;
 
-    PaymentType(String type, Supplier<PaymentService> service){
+    PaymentType(String type, PaymentService service){
         this.type = type;
         this.service = service;
     }
@@ -25,8 +27,7 @@ public enum PaymentType {
                 .filter(ele -> ele.type.equals(type))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("해당되는 결제유형이 존재하지 않습니다."))
-                .service
-                .get();
+                .service;
     }
 
     public static void approve(PayInfo payInfo){
