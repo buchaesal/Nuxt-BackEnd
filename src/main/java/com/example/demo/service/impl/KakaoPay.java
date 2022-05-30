@@ -8,24 +8,27 @@ import com.example.demo.dto.kakao.KakaoResponse;
 import com.example.demo.service.PayHistoryService;
 import com.example.demo.service.PaymentService;
 import com.example.demo.service.abstracts.PayProcess;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class KakaoPay extends PayProcess implements PaymentService {
+import javax.annotation.PostConstruct;
 
-    public KakaoPay(PayHistoryService payHistoryService) {
-        super(payHistoryService);
-    }
+@Service
+@RequiredArgsConstructor
+public class KakaoPay implements PaymentService {
+
+    private final PayProcess payProcess;
 
     @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {
         System.out.println("카카오페이 : approvePay");
-        return super.approve(new KakaoRequest(payInfo), new KakaoResponse());
+        return payProcess.approve(new KakaoRequest(payInfo), new KakaoResponse());
     }
 
     @Override
     public void cancelPay(PayCancelReqVO reqVO) {
-        super.cancel(new KakaoRequest(reqVO));
+        payProcess.cancel(new KakaoRequest(reqVO));
     }
 
     @Override

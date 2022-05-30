@@ -4,14 +4,14 @@ import com.example.demo.dto.PayApproveResVO;
 import com.example.demo.dto.RequestDto;
 import com.example.demo.dto.ResponseDto;
 import com.example.demo.service.PayHistoryService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public abstract class PayProcess {
+@Service
+@RequiredArgsConstructor
+public class PayProcess {
 
-    private PayHistoryService payHistoryService;
-
-    public PayProcess(PayHistoryService payHistoryService){
-        this.payHistoryService = payHistoryService;
-    }
+    private final PayHistoryService payHistoryService;
 
     public <T extends RequestDto, T2 extends ResponseDto> PayApproveResVO approve(T request, T2 response){
 

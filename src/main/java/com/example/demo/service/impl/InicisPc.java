@@ -10,11 +10,7 @@ import com.example.demo.service.PaymentService;
 import com.example.demo.service.abstracts.PayProcess;
 import org.springframework.stereotype.Service;
 @Service
-public class InicisPc extends PayProcess implements PaymentService {
-
-    public InicisPc(PayHistoryService payHistoryService){
-        super(payHistoryService);
-    }
+public class InicisPc implements PaymentService {
 
     private void validateAuth(PayInfo payInfo) {
     }
@@ -22,12 +18,12 @@ public class InicisPc extends PayProcess implements PaymentService {
     @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {
         System.out.println("이니시스 pc : approvePay");
-        return super.approve(new InicisRequest(payInfo), new InicisResponse());
+        return null;
     }
 
     @Override
     public void cancelPay(PayCancelReqVO reqVO) {
-        System.out.println("이니시스 pc : cancelPay");
+
     }
 
     @Override

@@ -21,6 +21,7 @@ public class PayService {
 //        PayCancelReqVO reqVO = new PayCancelReqVO();
 //        reqVO.setType("inicisPc");
 //        cancel(reqVO);
+
     }
 
     public static PayApproveResVO approve(PayInfo payInfo){

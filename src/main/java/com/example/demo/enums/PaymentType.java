@@ -1,18 +1,22 @@
 package com.example.demo.enums;
 
+import com.example.demo.config.SpringContext;
 import com.example.demo.dto.PayCancelReqVO;
 import com.example.demo.dto.PayInfo;
-import com.example.demo.service.PayHistoryService;
 import com.example.demo.service.PaymentService;
-import com.example.demo.service.impl.InicisPc;
 import com.example.demo.service.impl.KakaoPay;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.function.Supplier;
 
 public enum PaymentType {
 
-    INICIS_PC("inicisPc", new InicisPc(new PayHistoryService())),
-    KAKAO_PAY("kakaoPay", new KakaoPay(new PayHistoryService()));
+//    INICIS_PC("inicisPc", new InicisPc(new PayHistoryService())),
+    KAKAO_PAY("kakaoPay", SpringContext.getBean(KakaoPay.class));
 
     private final String type;
     private final PaymentService service;

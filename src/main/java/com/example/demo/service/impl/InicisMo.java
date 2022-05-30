@@ -11,20 +11,17 @@ import com.example.demo.service.abstracts.PayProcess;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InicisMo extends PayProcess implements PaymentService {
+public class InicisMo implements PaymentService {
 
-    public InicisMo(PayHistoryService payHistoryService){
-        super(payHistoryService);
-    }
 
     @Override
     public PayApproveResVO approvePay(PayInfo payInfo) {
-        return super.approve(new InicisRequest(payInfo), new InicisResponse());
+        return null;
     }
 
     @Override
     public void cancelPay(PayCancelReqVO reqVO) {
-        super.cancel(new InicisRequest(reqVO));
+
     }
 
     @Override
